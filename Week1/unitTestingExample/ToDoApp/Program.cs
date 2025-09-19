@@ -103,29 +103,29 @@ namespace ToDoApp
 
         }
 
-        public interface IMathService
-        {
-            public double Square( double number );
-            public double CalculateArea( double width, double height );
-        }
-
-        public class MathService : IMathService
-        {
-            public double Square( double number )
-            {
-                if (number < 0)
-                {
-                    throw new ArgumentException("Number must be non-negative", nameof(number));
-                }
-                return number * number;
-            }
-
-            public double CalculateArea( double width, double height )
-            {
-                return width * height;
-            }
-        }
-
         public record AreaRequest( double Width, double Height );
+    }
+
+    public interface IMathService
+    {
+        public double Square( double number );
+        public double CalculateArea( double width, double height );
+    }
+
+    public class MathService : IMathService
+    {
+        public double Square( double number )
+        {
+            if (number < 0)
+            {
+                throw new ArgumentException("Number must be non-negative", nameof(number));
+            }
+            return number * number;
+        }
+
+        public double CalculateArea( double width, double height )
+        {
+            return width * height;
+        }
     }
 }

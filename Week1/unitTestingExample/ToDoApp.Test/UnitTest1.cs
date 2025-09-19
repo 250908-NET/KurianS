@@ -1,24 +1,25 @@
 ﻿using ToDoApp;
 
-namespace ToDoApp.Test;
-
-public class MathServiceTests
+namespace ToDoApp.Test
 {
-    // Arange
-    private readonly IMathService _mathService;
-
-    public MathServiceTests()
+    public class MathServiceTests
     {
-        _mathService = new MathService();
-    }
+        // Arange
+        private readonly IMathService _mathService;
 
-    [Fact]
-    public void Test1()
-    {
-        // Act
-        var result = _mathService.Square(2);
+        public MathServiceTests()
+        {
+            _mathService = new MathService();
+        }
 
-        // Assert
-        Assert.Equal(4, result);
+        [Fact]
+        public void Test1()
+        {
+            // Act
+            var result = _mathService.Square(2);
+
+            // Assert
+            Assert.Equal(4, result);
+        }
     }
 }
