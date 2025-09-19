@@ -3,7 +3,7 @@ using Serilog;
 
 namespace ToDoApp
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args) 
         {
@@ -102,9 +102,9 @@ namespace ToDoApp
             // Critical - something went very wrong, the application might be unable to continue running - things that require immediate attention and action
 
         }
-
-        public record AreaRequest( double Width, double Height );
     }
+
+    public record AreaRequest( double Width, double Height );
 
     public interface IMathService
     {
