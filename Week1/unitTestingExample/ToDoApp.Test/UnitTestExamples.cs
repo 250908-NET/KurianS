@@ -121,6 +121,7 @@ namespace ToDoApp.Test
 
     // the first time we try to do this, we will probably forget that the Program class is not public by default,
     // and our test will fail to compile. To fix this, we need to make the Program class public in Program.cs
+    
     public class ToDoApiTests : IClassFixture<WebApplicationFactory<Program>>
     {
         // HttpClient to send requests to the test server
@@ -226,7 +227,6 @@ namespace ToDoApp.Test
         [InlineData(7, 8, 56)]
         public async Task PostArea_ValidDataAsObject_ReturnsExpectedResult(double width, double height, double expected)
         {
-    
             // Arrange
             // We can also create an object for the request body, and borrow that from Program.cs
             var request = new AreaRequest(width, height);
@@ -235,7 +235,7 @@ namespace ToDoApp.Test
             var response = await _client.PostAsJsonAsync("/area", request);
 
             // Assert
-            response.EnsureSuccessStatusCode();;
+            response.EnsureSuccessStatusCode();
 
             // we can validate the returned value after converting from JSON to a double
             var area = await response.Content.ReadFromJsonAsync<JsonElement>();
@@ -296,6 +296,6 @@ reportgenerator
 -reporttypes:Html
 
 The path can be relative (ie ./../app.test/) but needs to point to the coverage report.
-To see how you did, open up the index.html file that is generated in your browser, and bask in the beautiful coverage report you've created! (I've included mine as well, see how we did!)
-
+To see how you did, open up the index.html file that is generated in your browser, and bask in the beautiful coverage report you've created!
+(I've included mine as well, see how we did!)
 */
