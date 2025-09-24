@@ -1,4 +1,4 @@
--- Active: 1758555582352@@127.0.0.1@1433@master
+-- Active: 1758596351892@@127.0.0.1@1433@master
 
 /*******************************************************************************
    Chinook Database - Version 1.4
@@ -9,11 +9,8 @@
    License: http://www.codeplex.com/ChinookDatabase/license
 ********************************************************************************/
 
-DROP DATABASE [IF EXISTS] [Chinook];
-GO
-
-CREATE DATABASE [Chinook];
-GO
+DROP DATABASE [IF EXISTS] [Chinook]
+CREATE DATABASE [Chinook]
 
 USE Chinook;
 GO
