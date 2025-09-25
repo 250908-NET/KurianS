@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj": {}
+    "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\Week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj": {}
   },
   "projects": {
-    "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj": {
+    "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\Week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj",
+        "projectUniqueName": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\Week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj",
         "projectName": "Book-author.Api",
-        "projectPath": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj",
+        "projectPath": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\Week2\\Book-author\\Book-author.Api\\Book-author.Api.csproj",
         "packagesPath": "C:\\Users\\leoar\\.nuget\\packages\\",
-        "outputPath": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\week2\\Book-author\\Book-author.Api\\obj\\",
+        "outputPath": "C:\\Leo\\Learning\\Reavture-dotnet\\MyRepo\\trainer-code\\Week2\\Book-author\\Book-author.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leoar\\AppData\\Roaming\\NuGet\\NuGet.Config"
