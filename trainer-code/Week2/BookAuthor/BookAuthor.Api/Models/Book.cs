@@ -21,8 +21,12 @@ namespace BookAuthor.Models
         public int YearPublished { get; set; }
         [Required]
         public int AuthorId { get; set; }    // one -many to relation
-             [ForeignKey("AuthorId")]
+        [ForeignKey("AuthorId")]
         public Author? Author { get; set; }
-        public List<BookCategory> BookCategories { get; set; } = new();  //many to many(book -category)
+        public List<BookCategory> BookCategories { get; set; } = new(); 
+        
+            [NotMapped]
+    public IEnumerable<Category> Categories => BookCategories.Select(bc => bc.Category);
+} //many to many(book -category)
     }
-}
+

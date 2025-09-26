@@ -168,6 +168,25 @@ app.MapPost("/authorprofiles", async (AuthorProfile profile, BookAuthorDbContext
 });
 
 
+app.MapGet("/books/{bookId}", async (int bookId, BookAuthorDbContext db) =>
+{
+    var book = await db.Books
+                       .Include(b => b.BookCategories)
+                           .ThenInclude(bc => bc.Category)
+                       .FirstOrDefaultAsync(b => b.Id == bookId);
+
+    if (book == null) return Results.NotFound();
+
+    return Results.Ok(new 
+    {
+        book.Id,
+        book.Title,
+        book.YearPublished,
+        Categories = book.BookCategories.Select(bc => new { bc.Category.Id, bc.Category.Name })
+    });
+});
+
+
 
 app.Run();
 
