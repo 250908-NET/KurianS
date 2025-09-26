@@ -15,9 +15,8 @@ string CS = File.ReadAllText("../connection_string.env");
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddDbContext<BookAuthorDbContext>(options => options.UseSqlServer(CS));
-
+builder.
 Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();   // read from appsettings.json
 builder.Host.UseSerilog();
 
