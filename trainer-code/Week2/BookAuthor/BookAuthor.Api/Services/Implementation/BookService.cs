@@ -1,5 +1,5 @@
 using BookAuthor.Models;
-using BookAuthor.Repositories;
+using BookAuthor.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

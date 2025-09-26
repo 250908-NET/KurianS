@@ -3,8 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookAuthor.Data;
+using BookAuthor.Repositories.Interfaces;
 
-namespace BookAuthor.Repositories
+namespace BookAuthor.Repositories.Implementation
 {
     public class CategoryRepository : ICategoryRepository
     {

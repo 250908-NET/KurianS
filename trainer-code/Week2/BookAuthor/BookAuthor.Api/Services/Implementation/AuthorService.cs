@@ -1,5 +1,5 @@
 using BookAuthor.Models;
-using BookAuthor.Repositories; // make sure you have this namespace for IAuthorRepository
+using BookAuthor.Repositories.Interfaces; // make sure you have this namespace for IAuthorRepository
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

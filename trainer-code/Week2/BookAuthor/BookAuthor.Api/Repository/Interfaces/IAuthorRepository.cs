@@ -1,9 +1,8 @@
-
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookAuthor.Models;
 
-namespace BookAuthor.Repositories
+namespace BookAuthor.Repositories.Interfaces
 {
     public interface IAuthorRepository
     {

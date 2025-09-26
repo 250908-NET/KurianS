@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookAuthor.Models;
+           // for AuthorService, BookService, CategoryService
 
-namespace BookAuthor.Repositories
+
+namespace BookAuthor.Repositories.Interfaces
 {
     public interface ICategoryRepository
     {
