@@ -42,9 +42,9 @@ public class BookAuthorDbContext : DbContext
 
     // One-to-one Author-AuthorProfile
     modelBuilder.Entity<Author>()
-        .HasOne(a => a.Profile)
-        .WithOne(p => p.Author)
-        .HasForeignKey<AuthorProfile>(p => p.AuthorId);
+        .HasOne(a => a.Profile) // author has one profile
+        .WithOne(p => p.Author)  // profile has one author
+        .HasForeignKey<AuthorProfile>(p => p.AuthorId);  // has foreign key in author profile
 }
     }
 

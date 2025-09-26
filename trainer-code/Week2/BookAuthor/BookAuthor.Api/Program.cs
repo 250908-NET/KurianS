@@ -7,6 +7,7 @@ using BookAuthor.Services;
 using BookAuthor.Repositories;
 using BookAuthor.Repositories.Interfaces;
 using BookAuthor.Repositories.Implementation;
+using BookAuthor.DTOs;
 
 
 
@@ -69,17 +70,17 @@ app.MapGet("/authors/{id}", async (int id, IAuthorService service) =>
 });
 
 // POST: Create new author
-app.MapPost("/authors", async (Author author, IAuthorService service) =>
+app.MapPost("/authors", async (AuthorDto dto, IAuthorService service) =>
 {
-    var createdAuthor = await service.CreateAsync(author);
+    var createdAuthor = await service.CreateAsync(dto);
     return Results.Created($"/authors/{createdAuthor.Id}", createdAuthor);
 });
 
 // PUT: Update existing author
-app.MapPut("/authors/{id}", async (int id, Author updatedAuthor, IAuthorService service) =>
+app.MapPut("/authors/{id}", async (int id, AuthorDto dto, IAuthorService service) =>
 {
-     updatedAuthor.Id = id; // Set the ID
-    await service.UpdateAsync(updatedAuthor);
+     dto.Id = id; // Set the ID
+    await service.UpdateAsync(dto);
     return Results.NoContent(); 
 });
 
@@ -148,6 +149,24 @@ app.MapDelete("/categories/{id}", async (int id, ICategoryRepository repo) =>
 
     return Results.NoContent();
 });
+
+// for authorprofiles
+
+// POST /authorprofiles
+app.MapPost("/authorprofiles", async (AuthorProfile profile, BookAuthorDbContext db) =>
+{
+    // Check if the author exists
+    var author = await db.Authors.FindAsync(profile.AuthorId);
+    if (author == null)
+        return Results.NotFound($"Author with ID {profile.AuthorId} not found.");
+
+    // Add profile
+    db.AuthorProfiles.Add(profile);
+    await db.SaveChangesAsync();
+
+    return Results.Created($"/authorprofiles/{profile.Id}", profile);
+});
+
 
 
 app.Run();

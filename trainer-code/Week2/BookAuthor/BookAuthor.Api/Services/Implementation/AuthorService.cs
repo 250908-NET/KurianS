@@ -1,6 +1,9 @@
+
+using BookAuthor.DTOs;
 using BookAuthor.Models;
-using BookAuthor.Repositories.Interfaces; // make sure you have this namespace for IAuthorRepository
+using BookAuthor.Repositories.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookAuthor.Services
@@ -14,24 +17,55 @@ namespace BookAuthor.Services
             _repo = repo;
         }
 
-        public Task<IEnumerable<Author>> GetAllAsync() => _repo.GetAllAsync();
-
-        public Task<Author?> GetByIdAsync(int id) => _repo.GetByIdAsync(id);
-
-        public async Task<Author> CreateAsync(Author author)
+        // Map Author entity -> DTO
+        private AuthorDto MapToDto(Author author) => new AuthorDto
         {
+            Id = author.Id,
+            Name = author.Name,
+            
+        };
+
+        // Map DTO -> Author entity
+        private Author MapToEntity(AuthorDto dto) => new Author
+        {
+            Id = dto.Id,
+            Name = dto.Name,
+        
+        };
+
+        // Get all authors as DTOs
+        public async Task<IEnumerable<AuthorDto>> GetAllAsync()
+        {
+            var authors = await _repo.GetAllAsync();
+            return authors.Select(MapToDto);
+        }
+
+        // Get author by Id as DTO
+        public async Task<AuthorDto?> GetByIdAsync(int id)
+        {
+            var author = await _repo.GetByIdAsync(id);
+            return author == null ? null : MapToDto(author);
+        }
+
+        // Create author from DTO
+        public async Task<AuthorDto> CreateAsync(AuthorDto dto)
+        {
+            var author = MapToEntity(dto);
             await _repo.AddAsync(author);
             await _repo.SaveChangesAsync();
-            return author;
+            return MapToDto(author);
         }
 
-        public async Task<Author> UpdateAsync(Author author)
+        // Update author from DTO
+        public async Task<AuthorDto> UpdateAsync(AuthorDto dto)
         {
+            var author = MapToEntity(dto);
             await _repo.UpdateAsync(author);
             await _repo.SaveChangesAsync();
-            return author;
+            return MapToDto(author);
         }
 
+        // Delete author
         public async Task<bool> DeleteAsync(int id)
         {
             var author = await _repo.GetByIdAsync(id);
@@ -44,3 +78,4 @@ namespace BookAuthor.Services
         }
     }
 }
+
